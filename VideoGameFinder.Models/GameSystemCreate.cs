@@ -15,6 +15,7 @@ namespace VideoGameFinder.Models
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
     
         [Display(Name = "System Name")]
+        public int GameSystemID { get; set; }
         public string SystemName { get; set; }
         public string GameForSystem { get; set; }
         public decimal GameSystemPrice { get; set; }
