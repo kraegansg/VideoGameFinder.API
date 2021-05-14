@@ -41,18 +41,51 @@ namespace VideoGameFinder.Services
             }
         }
 
-        public UserRatingDetail GetUserRatingbyId (int id)
+        public UserRatingDetail GetUserRatingbyId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var entity =
+                    ctx
+                    .UserRatings
+                    .Single(e => e.UserId == id);
 
+                return new UserRatingDetail
+                {
+                    UserId = entity.UserId,
+                    GameTitle = entity.GameTitle
+                };
             }
         }
-    }
 
-    internal class UserRatingListItem
-    {
-        public object UserId { get; set; }
-        public object GameTitle { get; set; }
-    }
+        public bool UpdateUserRating(UserRatingEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .UserRatings
+                    .Single(e => e.UserId == model.UserId);
+                entity.GameTitle = model.GameTitle;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteUserRating(int userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .UserRatings
+                    .Single(e => e.UserId == userId);
+
+                ctx.UserRatings.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+    } 
+
 }
