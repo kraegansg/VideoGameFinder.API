@@ -39,7 +39,6 @@ namespace VideoGameFinder.Services
                 var query =
                     ctx
                         .GameSystems
-                        .Where(e => e.GameSystemID )
                         .Select(
                             e =>
                             new GameSystemListItems
@@ -52,19 +51,19 @@ namespace VideoGameFinder.Services
                 return query.ToArray();
             }
         }
-        public GameSystemDetail GetGameSystemById(int id)
+        public GameSystemDetail GetGameSystemById(int gameSystemID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .GameSystems
-                        .Single(e => e.GameSystemID == id && e.SystemName);
+                        .Single(e => e.GameSystemID == gameSystemID);
                 return
                     new GameSystemDetail
                     {
                         SystemName = entity.SystemName,
-                        GameForSystem = entity.GameSystem,
+                        GameForSystem = entity.GameForSystem,
                         GameSystemPrice = entity.GameSystemPrice
                     };
             }
