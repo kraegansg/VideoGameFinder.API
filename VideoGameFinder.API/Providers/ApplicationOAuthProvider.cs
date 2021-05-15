@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using VideoGameFinder.API.Models;
+using VideoGameFinder.Data;
 
 namespace VideoGameFinder.API.Providers
 {
