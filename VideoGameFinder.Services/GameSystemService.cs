@@ -10,27 +10,22 @@ namespace VideoGameFinder.Services
 {
     public class GameSystemService
     {
-        //private readonly Guid _userId;
-        //public GameSystemService(Guid userId)
-        //{
-        //    _userId = userId;
-        //}
         public bool CreateGameSystem(GameSystemCreate model)
         {
             var entity =
                 new GameSystem()
                 {
-                    GameSystemID = model.GameSystemID,
                     SystemName = model.SystemName,
                     GameForSystem = model.GameForSystem,
                     GameSystemPrice = model.GameSystemPrice
-
+                    //entity and add it to the database table. 
                 };
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.GameSystems.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
+            
         }
         public IEnumerable<GameSystemListItems> GetGameSystems()
         {
@@ -43,6 +38,7 @@ namespace VideoGameFinder.Services
                             e =>
                             new GameSystemListItems
                             {
+                                GameSystemId = e.GameSystemId,//check
                                 SystemName = e.SystemName,
                                 GameForSystem = e.GameForSystem,
                                 GameSystemPrice = e.GameSystemPrice
@@ -51,17 +47,18 @@ namespace VideoGameFinder.Services
                 return query.ToArray();
             }
         }
-        public GameSystemDetail GetGameSystemById(int gameSystemID)
+        public GameSystemDetail GetGameSystemById(int gameSystemId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .GameSystems
-                        .Single(e => e.GameSystemID == gameSystemID);
+                        .Single(e => e.GameSystemId == gameSystemId);
                 return
                     new GameSystemDetail
                     {
+                        GameSystemId = entity.GameSystemId,
                         SystemName = entity.SystemName,
                         GameForSystem = entity.GameForSystem,
                         GameSystemPrice = entity.GameSystemPrice
@@ -75,7 +72,7 @@ namespace VideoGameFinder.Services
                 var entity =
                     ctx
                         .GameSystems
-                        .Single(e => e.GameSystemID == model.GameSystemID);
+                        .Single(e => e.GameSystemId == model.GameSystemId);
 
                 entity.SystemName = entity.SystemName;
                 entity.GameForSystem = entity.GameForSystem;
@@ -90,7 +87,7 @@ namespace VideoGameFinder.Services
             {
                 var entity = ctx
                     .GameSystems
-                    .Single(e => e.GameSystemID == gameSystemId);
+                    .Single(e => e.GameSystemId == gameSystemId);
 
                 ctx.GameSystems.Remove(entity);
 

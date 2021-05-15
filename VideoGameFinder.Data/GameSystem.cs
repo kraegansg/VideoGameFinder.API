@@ -10,7 +10,7 @@ namespace VideoGameFinder.Data
     public class GameSystem
     {
         [Key]
-        public int GameSystemID { get; set; }
+        public int GameSystemId { get; set; }
         [Required]
         public string SystemName { get; set; }
         [Required]
