@@ -30,9 +30,9 @@ namespace VideoGameFinder.API.Controllers
             return Ok(userRating);
         }
 
-        public IHttpActionResult(int id)
+        public IHttpActionResult GetUserRatingById(int id)
         {
-            var userRating = _userRatingService.GetUserRatingById(id);
+            var userRating = _userRatingService.GetUserRatingbyId(id);
             return Ok(userRating);
         }
 
