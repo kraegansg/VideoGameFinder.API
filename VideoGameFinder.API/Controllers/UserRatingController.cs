@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using VideoGameFinder.Models;
+using VideoGameFinder.Services;
 
 namespace VideoGameFinder.API.Controllers
 {
@@ -25,7 +27,7 @@ namespace VideoGameFinder.API.Controllers
         public IHttpActionResult Get()
         {
             var userRating = _userRatingService.GetUserRatings();
-            return Ok(userRating)
+            return Ok(userRating);
         }
 
         public IHttpActionResult(int id)

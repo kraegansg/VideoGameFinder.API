@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using VideoGameFinder.Models;
+using VideoGameFinder.Data;
 
 namespace VideoGameFinder.Services
 {
