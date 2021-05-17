@@ -14,5 +14,8 @@ namespace VideoGameFinder.Models
         [MinLength(2, ErrorMessage="Please enter at least 2 characters.")]
         [MaxLength(40, ErrorMessage ="There are too many characters.")]
         public string GameTitle { get; set; }
+
+       //[ForeignKey]
+        public int GameId { get; set; }
     }
 }

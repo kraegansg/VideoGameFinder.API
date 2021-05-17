@@ -9,7 +9,7 @@ namespace VideoGameFinder.Models
 {
     public class UserRatingEdit
     {
-        [Key]
+        
         public int UserId { get; set; }
 
         [Required]

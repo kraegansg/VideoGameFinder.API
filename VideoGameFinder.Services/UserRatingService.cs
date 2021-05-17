@@ -29,17 +29,18 @@ namespace VideoGameFinder.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                var query =//querying db
                     ctx
                     .UserRatings
-                    .Select(
+                    .Select(//selecting multiple records
                         e =>
                         new UserRatingListItem
                         {
                             UserId = e.UserId,
                             GameTitle = e.GameTitle
                         });
-                return query.ToArray();
+                return query.ToArray();//ToArray taking data from db and putting it into 
+                //Array
             }
         }
 
@@ -50,7 +51,7 @@ namespace VideoGameFinder.Services
                 var entity =
                     ctx
                     .UserRatings
-                    .Single(e => e.UserId == id);
+                    .Single(e => e.UserId == id);//id in postman matches with UserId
 
                 return new UserRatingDetail
                 {
@@ -68,7 +69,7 @@ namespace VideoGameFinder.Services
                     ctx
                     .UserRatings
                     .Single(e => e.UserId == model.UserId);
-                entity.GameTitle = model.GameTitle;
+                entity.GameTitle = model.GameTitle;//updating GameTitle in Postman
 
                 return ctx.SaveChanges() == 1;
             }
