@@ -57,11 +57,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VideoGameFinder.API\VideoGameFinder.API.csproj">
+      <Project>{fc5e4b54-a602-41be-9495-9151d2590c65}</Project>
+      <Name>VideoGameFinder.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoGameFinder.Data\VideoGameFinder.Data.csproj">
+      <Project>{0CF7B8AE-810A-414F-BE96-D0E450E38186}</Project>
+      <Name>VideoGameFinder.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoGameFinder.Models\VideoGameFinder.Models.csproj">
+      <Project>{481C7E74-2A88-4799-969C-3BC93FC031AD}</Project>
+      <Name>VideoGameFinder.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

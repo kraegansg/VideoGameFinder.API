@@ -12,6 +12,5 @@ namespace VideoGameFinder.Models
         public string GameTitle { get; set; }
         public DateTime ReleaseDate { get; set; }
         public int PlayerCount { get; set; }
-
     }
 }
