@@ -17,7 +17,7 @@ namespace VideoGameFinder.Services
             _userId = userId;
         }
 
-
+        // Create New Game Genre Method 
         public bool CreateGameGenre(GameGenreCreate model)
         {
             var entity =
@@ -34,5 +34,34 @@ namespace VideoGameFinder.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        // View All Game Genres Method 
+        public IEnumerable<GameGenreItem> GetGameGenres()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .GameGenres
+                        .Select(
+                        e =>
+                            new GameGenreItem
+                            {
+                                GameGenreID = e.GameGenreID,
+                                GenreType = e.GenreType,
+                                IsMultiplayer = e.IsMultiplayer,
+                                IsNew = e.IsNew
+                            }
+                            );
+                return query.ToArray();
+            }
+        }
+
+        // Update Game Genre Method
+
+        // Delete Game Genre Method 
+
+
+
     }
 }
