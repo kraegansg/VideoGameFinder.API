@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace VideoGameFinder.Services
 {
-    class GameGenreService
+    public class GameGenreService
     {
+        private readonly
     }
 }
