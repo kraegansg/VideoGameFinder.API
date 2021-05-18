@@ -36,6 +36,18 @@ namespace VideoGameFinder.API.Controllers
             var gameSystem = gsService.GetGameSystemById(id);
             return Ok(gameSystem);
         }
+        public IHttpActionResult Put(GameSystemEdit id)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateGameSystemService();
+
+            if (!service.UpdateGameSystem(id))
+                return InternalServerError();
+
+            return Ok();
+        }
         public IHttpActionResult Delete(int id)
         {
             var gsService = CreateGameSystemService();

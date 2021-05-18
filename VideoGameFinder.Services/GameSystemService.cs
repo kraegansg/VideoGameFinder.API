@@ -65,14 +65,14 @@ namespace VideoGameFinder.Services
                     };
             }
         }
-        public bool UpdateGameSystems(GameSystemEdit model)
+        public bool UpdateGameSystem(GameSystemEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .GameSystems
-                        .Single(e => e.GameSystemId == model.GameSystemId);
+                        .Single(e => e.SystemName == model.SystemName); //question do you change out the gamesystemid since you wouldn't want IU to change the id. 
 
                 entity.SystemName = entity.SystemName;
                 entity.GameForSystem = entity.GameForSystem;
