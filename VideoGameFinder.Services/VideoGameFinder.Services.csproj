@@ -61,5 +61,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VideoGameFinder.Data\VideoGameFinder.Data.csproj">
+      <Project>{0cf7b8ae-810a-414f-be96-d0e450e38186}</Project>
+      <Name>VideoGameFinder.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoGameFinder.Models\VideoGameFinder.Models.csproj">
+      <Project>{481c7e74-2a88-4799-969c-3bc93fc031ad}</Project>
+      <Name>VideoGameFinder.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
