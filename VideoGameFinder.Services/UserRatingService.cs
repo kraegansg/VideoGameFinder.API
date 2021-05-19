@@ -67,7 +67,7 @@ namespace VideoGameFinder.Services
             {
                 var entity =
                     ctx
-                    .UserRatings
+                    .UserRatings 
                     .Single(e => e.UserId == model.UserId);
                 entity.GameTitle = model.GameTitle;//updating GameTitle in Postman
 
