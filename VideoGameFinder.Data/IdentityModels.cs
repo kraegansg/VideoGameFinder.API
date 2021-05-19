@@ -37,7 +37,7 @@ namespace VideoGameFinder.Data
         {
             modelBuilder
                 .Conventions
-                .Add<PluralizingTableNameConvention>();
+                .Remove<PluralizingTableNameConvention>();
 
             modelBuilder
                 .Configurations

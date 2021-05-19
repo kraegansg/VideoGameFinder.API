@@ -15,7 +15,7 @@ namespace VideoGameFinder.Services
             var entity =
                 new GameSystem()
                 {
-                    SystemName = model.SystemName,
+                    GameSystemName = model.GameSystemName,
                     GameForSystem = model.GameForSystem,
                     GameSystemPrice = model.GameSystemPrice
                     //entity and add it to the database table. 
@@ -39,7 +39,7 @@ namespace VideoGameFinder.Services
                             new GameSystemListItems
                             {
                                 GameSystemId = e.GameSystemId,//check
-                                SystemName = e.SystemName,
+                                SystemName = e.GameSystemName,
                                 GameForSystem = e.GameForSystem,
                                 GameSystemPrice = e.GameSystemPrice
                             }
@@ -59,7 +59,7 @@ namespace VideoGameFinder.Services
                     new GameSystemDetail
                     {
                         GameSystemId = entity.GameSystemId,
-                        SystemName = entity.SystemName,
+                        SystemName = entity.GameSystemName,
                         GameForSystem = entity.GameForSystem,
                         GameSystemPrice = entity.GameSystemPrice
                     };
@@ -72,11 +72,11 @@ namespace VideoGameFinder.Services
                 var entity =
                     ctx
                         .GameSystems
-                        .Single(e => e.SystemName == model.SystemName); //question do you change out the gamesystemid since you wouldn't want IU to change the id. 
+                        .Single(e => e.GameSystemId == model.GameSystemId); //question do you change out the gamesystemid since you wouldn't want IU to change the id. 
 
-                entity.SystemName = entity.SystemName;
-                entity.GameForSystem = entity.GameForSystem;
-                entity.GameSystemPrice = entity.GameSystemPrice;
+                entity.GameSystemName = model.GameSystemName;
+                entity.GameForSystem = model.GameForSystem;
+                entity.GameSystemPrice = model.GameSystemPrice;
 
                 return ctx.SaveChanges() == 1;
             }

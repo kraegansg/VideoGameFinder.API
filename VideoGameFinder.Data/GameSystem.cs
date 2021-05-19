@@ -12,7 +12,7 @@ namespace VideoGameFinder.Data
         [Key]
         public int GameSystemId { get; set; }
         [Required]
-        public string SystemName { get; set; }
+        public string GameSystemName { get; set; }
         [Required]
         public string GameForSystem { get; set; }
         public decimal GameSystemPrice { get; set; }

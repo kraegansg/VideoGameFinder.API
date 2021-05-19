@@ -8,8 +8,8 @@ namespace VideoGameFinder.Models
 {
     public class GameSystemEdit
     {
-        //public int GameSystemId { get; set; }
-        public string SystemName { get; set; }
+        public int GameSystemId { get; set; }
+        public string GameSystemName { get; set; }
         public string GameForSystem { get; set; }
         public decimal GameSystemPrice { get; set; }
 

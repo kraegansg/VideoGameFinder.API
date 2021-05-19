@@ -44,7 +44,7 @@ namespace VideoGameFinder.API.Controllers
             var service = CreateGameSystemService();
 
             if (!service.UpdateGameSystem(id))
-                return InternalServerError();
+            return InternalServerError();
 
             return Ok();
         }
