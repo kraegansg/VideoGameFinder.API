@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using VideoGameFinder.Data;
 
 namespace VideoGameFinder.Data
 {
@@ -32,13 +33,21 @@ namespace VideoGameFinder.Data
         {
             return new ApplicationDbContext();
         }
+
         public DbSet<Game> Games { get; set; }
+
+        
+        public DbSet<UserRating> UserRatings { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();
+
+
+
             modelBuilder
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
