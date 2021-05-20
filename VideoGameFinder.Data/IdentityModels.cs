@@ -37,13 +37,15 @@ namespace VideoGameFinder.Data
 
         public DbSet<Game> Games { get; set; }
 
+        public DbSet<UserRating> UserRatings { get; set; }
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();
-
 
 
 

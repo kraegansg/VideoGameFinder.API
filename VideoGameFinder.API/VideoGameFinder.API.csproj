@@ -217,6 +217,7 @@
     <Compile Include="Controllers\GameController.cs" />
 
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserRatingController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -415,6 +416,9 @@
       <Name>VideoGameFinder.Services</Name>
     </ProjectReference>
   </ItemGroup>
+
+
+
 
 
   <ItemGroup>
