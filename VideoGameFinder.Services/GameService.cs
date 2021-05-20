@@ -12,17 +12,17 @@ namespace VideoGameFinder.Services
     {
         private readonly Guid _userId;
 
-        /*public GameService(Guid userId)
+        public GameService(Guid userId)
         {
             _userId = userId;
-        }*/
+        }
 
         public bool CreateGame(GameCreate model)
         {
             var entity =
                 new Game()
                 {
-                    //OwnerId = _userId,
+                    OwnerId = _userId,
                     GameTitle = model.GameTitle,
                     ReleaseDate = model.ReleaseDate,
                     PlayerCount = model.PlayerCount,
@@ -30,14 +30,13 @@ namespace VideoGameFinder.Services
                     ESRBRating = model.ESRBRating,
                     IsReccommended = model.IsReccommended,
                     GamePrice = model.GamePrice,
-                    GameGenre = model.GameGenre,
-                    GameSystem = model.GameSystem
+                    GameGenre = model.GameGenre
                 };
     
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Game.Add(entity);
+                ctx.Games.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -48,14 +47,14 @@ namespace VideoGameFinder.Services
             {
                 var query =
                     ctx
-                        .Game
-                        .Where(e => e.OwnerId == _userId)
+                        .Games
+                        //.Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new GameListItem
                                 {
-                                    GameId = e.NoteId,
-                                    GameTitle = e.Title
+                                    GameId = e.GameId,
+                                    GameTitle = e.GameTitle
                                 }
                         );
 
@@ -69,7 +68,7 @@ namespace VideoGameFinder.Services
             {
                 var entity =
                     ctx
-                        .Game
+                        .Games
                         .Single(e => e.GameId == id && e.OwnerId == _userId);
                 return
                     new GameDetail
@@ -86,7 +85,7 @@ namespace VideoGameFinder.Services
             {
                 var entity =
                     ctx
-                        .Game
+                        .Games
                         .Single(e => e.GameId == model.GameId && e.OwnerId == _userId);
 
                 entity.GameTitle = model.GameTitle;
@@ -101,15 +100,14 @@ namespace VideoGameFinder.Services
             {
                 var entity =
                     ctx
-                        .Game
+                        .Games
                         .Single(e => e.GameId == GameId && e.OwnerId == _userId);
 
-                ctx.Game.Remove(entity);
+                ctx.Games.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
         }
     }
 
-}
 }

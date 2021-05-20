@@ -65,16 +65,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VideoGameFinder.API\VideoGameFinder.API.csproj">
-      <Project>{fc5e4b54-a602-41be-9495-9151d2590c65}</Project>
-      <Name>VideoGameFinder.API</Name>
-    </ProjectReference>
     <ProjectReference Include="..\VideoGameFinder.Data\VideoGameFinder.Data.csproj">
-      <Project>{0CF7B8AE-810A-414F-BE96-D0E450E38186}</Project>
+      <Project>{0cf7b8ae-810a-414f-be96-d0e450e38186}</Project>
       <Name>VideoGameFinder.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\VideoGameFinder.Models\VideoGameFinder.Models.csproj">
-      <Project>{481C7E74-2A88-4799-969C-3BC93FC031AD}</Project>
+      <Project>{481c7e74-2a88-4799-969c-3bc93fc031ad}</Project>
       <Name>VideoGameFinder.Models</Name>
     </ProjectReference>
   </ItemGroup>

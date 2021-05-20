@@ -16,9 +16,10 @@ namespace VideoGameFinder.Data
         public DateTime ReleaseDate { get; set; }
         public int PlayerCount { get; set; }
 
-        [ForeignKey]
+        public Guid _userId { get; set; }
+        public Guid OwnerId { get; set; }
         public int GameSystemId { get; set; }
-        [ForeignKey]
+        
         public int GameGenreId { get; set; }
         public string ESRBRating { get; set; }
         public bool IsReccommended { get; set; }

@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using VideoGameFinder.Models;
+using VideoGameFinder.Services;
 
 namespace VideoGameFinder.API.Controllers
 {
-    public class GameController
+    public class GameController : ApiController
     {
             private GameService CreateGameService()
             {
@@ -43,7 +46,7 @@ namespace VideoGameFinder.API.Controllers
                 return Ok(game);
             }
 
-            public IHttpActionResult Put(GameEdit note)
+            public IHttpActionResult Put(GameEdit game)
             {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
@@ -65,6 +68,5 @@ namespace VideoGameFinder.API.Controllers
 
                 return Ok();
             }
-        }
     }
 }

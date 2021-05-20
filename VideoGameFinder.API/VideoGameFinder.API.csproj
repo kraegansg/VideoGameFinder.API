@@ -398,10 +398,21 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VideoGameFinder.Data\VideoGameFinder.Data.csproj">
+      <Project>{0cf7b8ae-810a-414f-be96-d0e450e38186}</Project>
+      <Name>VideoGameFinder.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VideoGameFinder.Models\VideoGameFinder.Models.csproj">
       <Project>{481c7e74-2a88-4799-969c-3bc93fc031ad}</Project>
       <Name>VideoGameFinder.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VideoGameFinder.Services\VideoGameFinder.Services.csproj">
+      <Project>{c9f73589-a40e-4775-a6da-c1ab39ad5926}</Project>
+      <Name>VideoGameFinder.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
