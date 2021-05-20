@@ -33,14 +33,20 @@ namespace VideoGameFinder.Data
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Game> Games { get; set; }
+
         
         public DbSet<UserRating> UserRatings { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();
+
+
 
             modelBuilder
                 .Configurations
