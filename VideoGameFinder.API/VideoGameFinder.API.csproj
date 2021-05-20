@@ -213,7 +213,6 @@
     <Compile Include="Controllers\AccountController.cs" />
 
     <Compile Include="Controllers\GameSystemController.cs" />
-=======
     <Compile Include="Controllers\GameController.cs" />
 
     <Compile Include="Controllers\HomeController.cs" />
@@ -416,11 +415,6 @@
       <Name>VideoGameFinder.Services</Name>
     </ProjectReference>
   </ItemGroup>
-
-
-
-
-
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
