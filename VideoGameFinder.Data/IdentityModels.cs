@@ -31,7 +31,7 @@ namespace VideoGameFinder.Data
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
-        }//
+        }
         public DbSet<GameSystem> GameSystems { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
