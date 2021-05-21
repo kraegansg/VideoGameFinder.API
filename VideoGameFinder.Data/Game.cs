@@ -13,11 +13,12 @@ namespace VideoGameFinder.Data
         [Key]
         public int GameId { get; set; }
         public string GameTitle { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public int ReleaseDate { get; set; }
         public int PlayerCount { get; set; }
 
         public Guid _userId { get; set; }
         public Guid OwnerId { get; set; }
+  
         public int GameSystemId { get; set; }
         
         public int GameGenreId { get; set; }

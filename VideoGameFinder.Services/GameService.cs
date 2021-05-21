@@ -28,7 +28,7 @@ namespace VideoGameFinder.Services
                     PlayerCount = model.PlayerCount,
                     GameSystem = model.GameSystem,
                     ESRBRating = model.ESRBRating,
-                    IsReccommended = model.IsReccommended,
+                    IsReccommended = model.IsRecommended,
                     GamePrice = model.GamePrice,
                     GameGenre = model.GameGenre
                 };
@@ -101,7 +101,7 @@ namespace VideoGameFinder.Services
                 var entity =
                     ctx
                         .Games
-                        .Single(e => e.GameId == GameId && e.OwnerId == _userId);
+                        .Single(e => e.GameId == gameId && e.OwnerId == _userId);
 
                 ctx.Games.Remove(entity);
 

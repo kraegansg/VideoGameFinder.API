@@ -68,6 +68,7 @@ namespace VideoGameFinder.Data
             {
                 HasKey(iur => iur.UserId);
             }
+        }
 
     }
 
