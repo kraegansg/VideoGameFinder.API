@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameGenreCreate.cs" />
+    <Compile Include="GameGenreDetail.cs" />
+    <Compile Include="GameGenreEdit.cs" />
     <Compile Include="GameGenreItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -23,7 +23,7 @@ namespace VideoGameFinder.Services
             var entity =
                 new GameGenre()
                 {
-                    OwnerId = _userId,
+                    // !! I don't think we need this - UserId = _userId,
                     GenreType = model.GenreType
 
                 };
@@ -58,8 +58,30 @@ namespace VideoGameFinder.Services
         }
 
         // Update Game Genre Method
+        
 
         // Delete Game Genre Method 
+
+        // Get Game Genre by Genre Type 
+        public GameGenreDetail GetGameGenreByType(string gameGenreType)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .GameGenres;
+
+                    // No user ID needed
+                return
+                    new GameGenreDetail
+                    {
+                        GameGenreID = entity.GameGenreID,
+                        GenreType = entity.GenreType,
+                        IsMultiplayer = entity.IsMultiplayer,
+                        IsNew = entity.IsNew
+                    };
+            }
+        }
 
 
 
