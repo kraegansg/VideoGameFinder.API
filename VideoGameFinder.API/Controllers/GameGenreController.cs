@@ -17,8 +17,8 @@ namespace VideoGameFinder.API.Controllers
         private GameGenreService CreateGameGenreService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var GameGenreService = new GameGenreService(userId);
-            return GameGenreService;
+            var gameGenreService = new GameGenreService(userId);
+            return gameGenreService;
         }
 
         // Get All Method
@@ -42,5 +42,32 @@ namespace VideoGameFinder.API.Controllers
 
             return Ok();
         }
+
+        // Put Method
+        public IHttpActionResult Put(GameGenreEdit gameGenre)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateGameGenreService();
+
+            if (!service.UpdateGameGenre(gameGenre))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        // Delete Method
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateGameGenreService();
+
+            if (!service.DeleteGameGenre(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
+
 }
+
