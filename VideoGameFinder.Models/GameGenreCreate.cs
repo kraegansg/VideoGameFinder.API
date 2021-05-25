@@ -9,6 +9,7 @@ namespace VideoGameFinder.Models
 {
     public class GameGenreCreate
     {
+        public int GameGenreId { get; set; }
         [Required]
         [MaxLength(25)]
         public string GenreType { get; set; }

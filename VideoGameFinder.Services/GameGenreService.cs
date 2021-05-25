@@ -23,8 +23,12 @@ namespace VideoGameFinder.Services
             var entity =
                 new GameGenre()
                 {
-                    // !! I don't think we need this - UserId = _userId,
-                    GenreType = model.GenreType
+                    GameGenreId = model.GameGenreId,
+                    GenreType = model.GenreType,
+                    IsMultiplayer = model.IsMultiplayer,
+                    IsNew = model.IsNew
+
+
 
                 };
 
@@ -34,6 +38,8 @@ namespace VideoGameFinder.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+
 
         // View All Game Genres Method 
         public IEnumerable<GameGenreItem> GetGameGenres()
@@ -47,7 +53,7 @@ namespace VideoGameFinder.Services
                         e =>
                             new GameGenreItem
                             {
-                                GameGenreID = e.GameGenreID,
+                                GameGenreId = e.GameGenreId,
                                 GenreType = e.GenreType,
                                 IsMultiplayer = e.IsMultiplayer,
                                 IsNew = e.IsNew
@@ -58,9 +64,38 @@ namespace VideoGameFinder.Services
         }
 
         // Update Game Genre Method
-        
+        public bool UpdateGameGenre(GameGenreEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .GameGenres
+                        .Single(e => e.GameGenreId == model.GameGenreId);
+
+                entity.GameGenreId = model.GameGenreId;
+                entity.GenreType = model.GenreType;
+                entity.IsNew = model.IsNew;
+                entity.IsMultiplayer = model.IsMultiplayer;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
         // Delete Game Genre Method 
+        public bool DeleteGameGenre(int gameGenreId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .GameGenres
+                    .Single(e => e.GameGenreId == gameGenreId);
+
+                ctx.GameGenres.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
         // Get Game Genre by Genre Type 
         public GameGenreDetail GetGameGenreByType(string gameGenreType)
@@ -69,13 +104,34 @@ namespace VideoGameFinder.Services
             {
                 var entity =
                     ctx
-                    .GameGenres;
+                    .GameGenres
+                    .Single(e => e.GenreType == gameGenreType);
 
-                    // No user ID needed
+                // No user ID needed
                 return
                     new GameGenreDetail
                     {
-                        GameGenreID = entity.GameGenreID,
+                        GameGenreId = entity.GameGenreId,
+                        GenreType = entity.GenreType,
+                        IsMultiplayer = entity.IsMultiplayer,
+                        IsNew = entity.IsNew
+                    };
+            }
+        }
+
+        // Get Game Genre By ID
+        public GameGenreDetail GetGameGenreById(int gameGenreId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .GameGenres
+                        .Single(e => e.GameGenreId == gameGenreId);
+                return
+                    new GameGenreDetail
+                    {
+                        GameGenreId = entity.GameGenreId,
                         GenreType = entity.GenreType,
                         IsMultiplayer = entity.IsMultiplayer,
                         IsNew = entity.IsNew
@@ -87,3 +143,6 @@ namespace VideoGameFinder.Services
 
     }
 }
+
+
+

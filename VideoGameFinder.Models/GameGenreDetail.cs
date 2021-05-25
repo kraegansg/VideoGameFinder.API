@@ -9,7 +9,7 @@ namespace VideoGameFinder.Models
     public class GameGenreDetail
     {
         //view all properties of a Game Genre
-        public int GameGenreID { get; set; }
+        public int GameGenreId { get; set; }
         public string GenreType { get; set; }
         public bool IsNew { get; set; }
         public bool IsMultiplayer { get; set; }

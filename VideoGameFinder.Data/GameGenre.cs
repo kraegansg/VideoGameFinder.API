@@ -10,7 +10,7 @@ namespace VideoGameFinder.Data
     public class GameGenre
     {
         [Key]
-        public int GameGenreID { get; set; }
+        public int GameGenreId { get; set; }
         [Required]
         public string GenreType { get; set; }
         public bool IsNew { get; set; }
