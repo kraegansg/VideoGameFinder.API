@@ -11,7 +11,6 @@ namespace VideoGameFinder.Models
     {
         public int GameGenreId { get; set; }
         [Required]
-        [MaxLength(25)]
         public string GenreType { get; set; }
         public bool IsNew { get; set; }
         public bool IsMultiplayer { get; set; }
