@@ -18,6 +18,7 @@ namespace VideoGameFinder.Data
 
         public Guid _userId { get; set; }
         public Guid OwnerId { get; set; }
+        [ForeignKey(nameof(Game))]
         public int GameSystemId { get; set; }
         
         public int GameGenreId { get; set; }

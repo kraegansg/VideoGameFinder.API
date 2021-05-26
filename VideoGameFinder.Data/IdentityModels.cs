@@ -68,7 +68,7 @@ namespace VideoGameFinder.Data
             {
                 HasKey(iur => iur.UserId);
             }
-
+        }
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>

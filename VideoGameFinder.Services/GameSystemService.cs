@@ -72,7 +72,7 @@ namespace VideoGameFinder.Services
                 var entity =
                     ctx
                         .GameSystems
-                        .Single(e => e.GameSystemId == model.GameSystemId); //question do you change out the gamesystemid since you wouldn't want IU to change the id. 
+                        .Single(e => e.GameSystemId == model.GameSystemId);
 
                 entity.GameSystemName = model.GameSystemName;
                 entity.GameForSystem = model.GameForSystem;
