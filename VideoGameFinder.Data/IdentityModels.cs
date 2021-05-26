@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -11,7 +11,7 @@ using VideoGameFinder.Data;
 namespace VideoGameFinder.Data
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser 
+    public class ApplicationUser : IdentityUser
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
@@ -28,16 +28,11 @@ namespace VideoGameFinder.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
-
-        public DbSet<GameSystem> GameSystems { get; set; }
-
-        public DbSet<Game> Games { get; set; }
-
-        public DbSet<UserRating> UserRatings { get; set; }
 
 
 
@@ -47,13 +42,12 @@ namespace VideoGameFinder.Data
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();
 
-
-
             modelBuilder
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
+
 
         public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {
@@ -70,20 +64,8 @@ namespace VideoGameFinder.Data
             }
         }
     }
-
-    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
-    {
-        public IdentityUserLoginConfiguration()
-        {
-            HasKey(iul => iul.UserId);
-        }
-    }
-
-    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
-    {
-        public IdentityUserRoleConfiguration()
-        {
-            HasKey(iur => iur.UserId);
-        }
-    }
 }
+
+
+  
+

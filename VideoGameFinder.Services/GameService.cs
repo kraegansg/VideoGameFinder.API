@@ -28,7 +28,7 @@ namespace VideoGameFinder.Services
                     PlayerCount = model.PlayerCount,
                     GameSystem = model.GameSystem,
                     ESRBRating = model.ESRBRating,
-                    IsReccommended = model.IsReccommended,
+                    IsReccommended = model.IsRecommended,
                     GamePrice = model.GamePrice,
                     GameGenre = model.GameGenre
                 };
