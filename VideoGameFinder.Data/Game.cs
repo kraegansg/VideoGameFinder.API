@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,7 +18,9 @@ namespace VideoGameFinder.Data
 
         public Guid _userId { get; set; }
         public Guid OwnerId { get; set; }
-  
+
+        [ForeignKey(nameof(Game))]
+
         public int GameSystemId { get; set; }
         
         public int GameGenreId { get; set; }
