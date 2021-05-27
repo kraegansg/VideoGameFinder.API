@@ -57,15 +57,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameGenreCreate.cs" />
-    <Compile Include="GameGenreDetail.cs" />
-    <Compile Include="GameGenreEdit.cs" />
-    <Compile Include="GameGenreItem.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRatingCreate.cs" />
+    <Compile Include="UserRatingDetail.cs" />
+    <Compile Include="UserRatingEdit.cs" />
+    <Compile Include="UserRatingListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VideoGameFinder.Data\VideoGameFinder.Data.csproj">
+      <Project>{0cf7b8ae-810a-414f-be96-d0e450e38186}</Project>
+      <Name>VideoGameFinder.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
